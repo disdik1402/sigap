@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SIGAP Pasuruan</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 350px;
+        }
+        .login-container h1 {
+            color: #004d40;
+            margin-bottom: 10px;
+        }
+        .login-container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .role-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00796b;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        .role-button:hover {
+            background-color: #004d40;
+        }
+        .role-button.admin {
+            background-color: #c62828;
+        }
+        .role-button.admin:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>SIGAP Pasuruan</h1>
+        <p>Silakan pilih peran Anda untuk masuk ke sistem.</p>
+        
+        <a href="index.html" class="role-button">Masuk sebagai Pimpinan</a>
+        <a href="operator.html" class="role-button">Masuk sebagai Operator Sekolah</a>
+        <a href="admin.html" class="role-button admin">Masuk sebagai Super Admin</a>
+
+    </div>
+</body>
+</html>

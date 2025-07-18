@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator - SIGAP Pasuruan</title>
+    <link rel="stylesheet" href="operator.css">
+</head>
+<body>
+    <header>
+        <h1>Portal Operator Sekolah - SIGAP Pasuruan</h1>
+        <div class="user-info">Login sebagai: Operator SMPN 1 Grati (<a href="#">Logout</a>)</div>
+    </header>
+    <main>
+        <h2>Profil Sekolah Anda</h2>
+        <div class="profile-section">
+            <p><strong>Nama Sekolah:</strong> SMPN 1 Grati</p>
+            <p><strong>NPSN:</strong> 20519123</p>
+            <p><strong>Alamat:</strong> Jl. Raya Grati No. 123, Pasuruan</p>
+        </div>
+
+        <hr>
+
+        <div class="form-section">
+            <h2>Ajukan Perubahan Data Sarpras</h2>
+            <p>Gunakan form ini untuk mengajukan pembaruan data sarana & prasarana.</p>
+            <form class="update-form" onsubmit="submitForm(event, 'Sarpras')">
+                <div class="form-group">
+                    <label for="ruang">Pilih Ruang/Bangunan:</label>
+                    <select name="ruang">
+                        <option value="Ruang Kelas A">Ruang Kelas A (Kondisi Saat Ini: Baik)</option>
+                        <option value="Laboratorium IPA">Laboratorium IPA (Kondisi Saat Ini: Baik)</option>
+                        <option value="Perpustakaan">Perpustakaan (Kondisi Saat Ini: Rusak Ringan)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status-baru">Ubah Status Menjadi:</label>
+                    <select name="status-baru">
+                        <option value="Baik">Baik</option>
+                        <option value="Rusak Ringan">Rusak Ringan</option>
+                        <option value="Rusak Sedang">Rusak Sedang</option>
+                        <option value="Rusak Berat">Rusak Berat</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deskripsi-sarpras">Deskripsi Perubahan:</label>
+                    <textarea name="deskripsi-sarpras" rows="3" placeholder="Contoh: Atap ambruk karena hujan deras"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="foto">Unggah Foto Bukti:</label>
+                    <input type="file" name="foto" multiple>
+                </div>
+                <button type="submit">Ajukan Perubahan Sarpras</button>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="form-section">
+            <h2>Tambah Data GTK (Non-Dapodik)</h2>
+            <p>Gunakan form ini untuk menambahkan data guru honorer atau tenaga baru yang belum masuk Dapodik.</p>
+            <form class="update-form" onsubmit="submitForm(event, 'GTK')">
+                <div class="form-group">
+                    <label for="nama-guru">Nama Lengkap:</label>
+                    <input type="text" name="nama-guru" placeholder="Contoh: Budi Santoso, S.Pd.">
+                </div>
+                <div class="form-group">
+                    <label for="jabatan-guru">Jabatan:</label>
+                    <input type="text" name="jabatan-guru" placeholder="Contoh: Guru Honorer Matematika">
+                </div>
+                 <div class="form-group">
+                    <label for="status-sertifikasi">Status Sertifikasi:</label>
+                    <select name="status-sertifikasi">
+                        <option value="Belum Tersertifikasi">Belum Tersertifikasi</option>
+                        <option value="Sudah Tersertifikasi">Sudah Tersertifikasi</option>
+                    </select>
+                </div>
+                <button type="submit">Ajukan Penambahan GTK</button>
+            </form>
+        </div>
+        
+        <hr>
+
+        <div class="form-section">
+            <h2>Tambah Histori Bantuan & Program</h2>
+            <p>Gunakan form ini untuk mencatat bantuan (misal: dari CSR) atau program yang tidak tercatat di Dapodik.</p>
+            <form class="update-form" onsubmit="submitForm(event, 'Bantuan')">
+                <div class="form-group">
+                    <label for="nama-bantuan">Nama Bantuan/Program:</label>
+                    <input type="text" name="nama-bantuan" placeholder="Contoh: Bantuan Laptop dari PT. Sejahtera">
+                </div>
+                <div class="form-group">
+                    <label for="sumber-bantuan">Sumber:</label>
+                    <input type="text" name="sumber-bantuan" placeholder="Contoh: CSR Perusahaan">
+                </div>
+                 <div class="form-group">
+                    <label for="tahun-bantuan">Tahun:</label>
+                    <input type="number" name="tahun-bantuan" placeholder="2025">
+                </div>
+                <button type="submit">Ajukan Penambahan Bantuan</button>
+            </form>
+        </div>
+
+    </main>
+
+    <script>
+        function submitForm(event, type) {
+            event.preventDefault(); // Mencegah form benar-benar disubmit
+            alert(`Pengajuan data ${type} telah berhasil dikirim!\\nData akan segera diverifikasi oleh Admin Dinas Pendidikan. Terima kasih.`);
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #b71c1c;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.4em;
+}
+
+.user-info a {
+    color: #ffcdd2;
+    text-decoration: none;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+h2 {
+    color: #b71c1c;
+}
+
+.submission-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid #ffa726;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.submission-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.submission-card ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.submission-card li {
+    padding: 5px 0;
+}
+
+.actions {
+    text-align: right;
+}
+
+.actions button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.actions .approve {
+    background-color: #2e7d32;
+    color: white;
+}
+.actions .approve:hover {
+    background-color: #1b5e20;
+}
+
+.actions .reject {
+    background-color: #c62828;
+    color: white;
+}
+.actions .reject:hover {
+    background-color: #b71c1c;
+}

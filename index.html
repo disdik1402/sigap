@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGAP Pasuruan</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>SIGAP Pasuruan (Sistem Informasi Geografis Analitik Pendidikan)</h1>
+        <nav class="main-nav">
+            <a href="operator.html" target="_blank">Portal Operator Sekolah</a>
+        </nav>
+    </header>
+    <main>
+        <div id="filter-panel">
+            <h2>Filter & Layer</h2>
+            <div class="filter-group">
+                <label for="filter-kondisi">Kondisi Bangunan:</label>
+                <select id="filter-kondisi">
+                    <option value="semua">Tampilkan Semua</option>
+                    <option value="rusak-berat">Hanya Rusak Berat (> 20%)</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-guru">Kekurangan Guru (SMP):</label>
+                <select id="filter-guru">
+                    <option value="semua">Tidak ada filter</option>
+                    <option value="Matematika">Matematika</option>
+                    <option value="Bahasa Inggris">Bahasa Inggris</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-pensiun">Guru Akan Pensiun (2 Thn):</label>
+                <select id="filter-pensiun">
+                    <option value="semua">Tampilkan Semua</option>
+                    <option value="ya">Ya</option>
+                </select>
+            </div>
+            <hr>
+            <h2>Analisis & Prediksi</h2>
+            <div class="filter-group">
+                <button id="btn-prediksi-kursi">Proyeksi Kebutuhan Kursi SMP</button>
+            </div>
+            <div class="filter-group">
+                <button id="btn-simulasi-regrouping">Simulasi Regrouping Sekolah</button>
+            </div>
+        </div>
+        <div id="content-area">
+            <div id="kpi-dashboard"></div>
+            <div id="map"></div>
+        </div>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

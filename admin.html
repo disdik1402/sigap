@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - SIGAP Pasuruan</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header>
+        <h1>Panel Super Admin - SIGAP Pasuruan</h1>
+        <div class="user-info">Login sebagai: Super Admin (<a href="login.html">Logout</a>)</div>
+    </header>
+    <main>
+        <h2>Antrean Verifikasi Data</h2>
+        <p>Berikut adalah daftar pengajuan perubahan data dari operator sekolah yang menunggu persetujuan Anda.</p>
+        
+        <div class="submission-list">
+            <div class="submission-card" id="sub1">
+                <h3>Perubahan Sarpras - SMPN 1 Grati</h3>
+                <ul>
+                    <li><strong>Jenis Data:</strong> Sarana & Prasarana</li>
+                    <li><strong>Ruang/Bangunan:</strong> Ruang Kelas A</li>
+                    <li><strong>Status Lama:</strong> Baik</li>
+                    <li><strong>Status Baru:</strong> Rusak Berat</li>
+                    <li><strong>Deskripsi:</strong> "Atap ambruk karena hujan deras"</li>
+                    <li><strong>Bukti Foto:</strong> <a href="#" onclick="alert('Simulasi membuka galeri foto bukti.')">Lihat 3 Foto</a></li>
+                </ul>
+                <div class="actions">
+                    <button class="approve" onclick="handleAction('sub1', 'disetujui')">Setujui</button>
+                    <button class="reject" onclick="handleAction('sub1', 'ditolak')">Tolak</button>
+                </div>
+            </div>
+
+            <div class="submission-card" id="sub2">
+                <h3>Penambahan GTK - SDN 1 Pandaan</h3>
+                <ul>
+                    <li><strong>Jenis Data:</strong> GTK (Non-Dapodik)</li>
+                    <li><strong>Nama Guru:</strong> Budi Santoso, S.Pd.</li>
+                    <li><strong>Jabatan:</strong> Guru Honorer Matematika</li>
+                </ul>
+                <div class="actions">
+                    <button class="approve" onclick="handleAction('sub2', 'disetujui')">Setujui</button>
+                    <button class="reject" onclick="handleAction('sub2', 'ditolak')">Tolak</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function handleAction(submissionId, action) {
+            const card = document.getElementById(submissionId);
+            const schoolName = card.querySelector('h3').textContent.split(' - ')[1];
+            
+            if (confirm(`Apakah Anda yakin ingin ${action} pengajuan dari ${schoolName}?`)) {
+                alert(`Pengajuan telah berhasil ${action}.`);
+                card.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

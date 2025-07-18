@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Sekolah - SIGAP Pasuruan</title>
+    <link rel="stylesheet" href="profil.css">
+</head>
+<body>
+    <header>
+        <h1>Profil Lembaga Pendidikan</h1>
+        <a href="index.html" class="back-link">&larr; Kembali ke Peta</a>
+    </header>
+    <main>
+        <div class="profile-header">
+            <h2 id="nama-sekolah">Nama Sekolah</h2>
+            <p id="npsn-sekolah">NPSN: 12345678</p>
+        </div>
+
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="openTab(event, 'profil')">Profil Umum</button>
+                <button class="tab-button" onclick="openTab(event, 'gtk')">GTK</button>
+                <button class="tab-button" onclick="openTab(event, 'kesiswaan')">Kesiswaan</button>
+                <button class="tab-button" onclick="openTab(event, 'sarpras')">Sarpras</button>
+                <button class="tab-button" onclick="openTab(event, 'bantuan')">Bantuan & Program</button>
+            </div>
+
+            <div id="profil" class="tab-content active">
+                <h3>Profil Umum</h3>
+                <!-- Data akan diisi oleh JavaScript -->
+            </div>
+
+            <div id="gtk" class="tab-content">
+                <h3>Guru & Tenaga Kependidikan (GTK)</h3>
+                <!-- Data akan diisi oleh JavaScript -->
+            </div>
+
+            <div id="kesiswaan" class="tab-content">
+                <h3>Kesiswaan</h3>
+                <!-- Data akan diisi oleh JavaScript -->
+            </div>
+
+            <div id="sarpras" class="tab-content">
+                <h3>Sarana & Prasarana</h3>
+                <!-- Data akan diisi oleh JavaScript -->
+            </div>
+
+            <div id="bantuan" class="tab-content">
+                <h3>Bantuan & Program</h3>
+                <!-- Data akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Data dummy untuk semua sekolah, seolah-olah dari database
+        const allSchoolData = {
+            '20519123': {
+                nama: 'SMPN 1 Grati',
+                npsn: '20519123',
+                profil: { alamat: 'Jl. Raya Grati No. 123', akreditasi: 'A', kepsek: 'Drs. Hartono', kontak: '0343-12345' },
+                gtk: { total: 50, pns: 30, pppk: 15, honorer: 5, tabel: 'Konten tabel detail guru...' },
+                kesiswaan: { total: 800, rombel: 24, rataRata: 33 },
+                sarpras: { tabel: 'Konten tabel detail sarpras...' },
+                bantuan: { histori: 'DAK 2022, BOS 2023', program: 'Sekolah Penggerak' }
+            },
+            '20518661': {
+                nama: 'SDN 1 Pandaan',
+                npsn: '20518661',
+                profil: { alamat: 'Jl. Pahlawan No. 1', akreditasi: 'A', kepsek: 'Siti Aminah, S.Pd.', kontak: '0343-65432' },
+                gtk: { total: 25, pns: 15, pppk: 5, honorer: 5, tabel: 'Konten tabel detail guru...' },
+                kesiswaan: { total: 450, rombel: 18, rataRata: 25 },
+                sarpras: { tabel: 'Konten tabel detail sarpras...' },
+                bantuan: { histori: 'BOS 2023', program: 'Adiwiyata' }
+            },
+            '20519000': {
+                nama: 'SMPN 1 Bangil',
+                npsn: '20519000',
+                profil: { alamat: 'Jl. Merdeka No. 99', akreditasi: 'A', kepsek: 'Dr. Ahmad Fauzi', kontak: '0343-99887' },
+                gtk: { total: 60, pns: 40, pppk: 15, honorer: 5, tabel: 'Konten tabel detail guru...' },
+                kesiswaan: { total: 950, rombel: 30, rataRata: 32 },
+                sarpras: { tabel: 'Konten tabel detail sarpras...' },
+                bantuan: { histori: 'DAK 2021, BOS 2023', program: 'Sekolah Sehat' }
+            },
+            '20519999': {
+                nama: 'SDN 2 Rejoso',
+                npsn: '20519999',
+                profil: { alamat: 'Jl. Desa Rejoso', akreditasi: 'B', kepsek: 'Suparman, S.Pd.', kontak: '0343-11223' },
+                gtk: { total: 15, pns: 8, pppk: 2, honorer: 5, tabel: 'Konten tabel detail guru...' },
+                kesiswaan: { total: 200, rombel: 6, rataRata: 33 },
+                sarpras: { tabel: 'Konten tabel detail sarpras...' },
+                bantuan: { histori: 'BOS 2023, Bantuan Rehab 2022', program: '-' }
+            }
+        };
+
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const npsn = urlParams.get('npsn');
+            const school = allSchoolData[npsn] || allSchoolData['20519123']; // Fallback
+
+            document.getElementById('nama-sekolah').textContent = school.nama;
+            document.getElementById('npsn-sekolah').textContent = `NPSN: ${school.npsn}`;
+
+            // Isi data ke setiap tab
+            document.getElementById('profil').innerHTML = `<h3>Profil Umum</h3>
+                <p><strong>Alamat:</strong> ${school.profil.alamat}</p>
+                <p><strong>Akreditasi:</strong> ${school.profil.akreditasi}</p>
+                <p><strong>Kepala Sekolah:</strong> ${school.profil.kepsek}</p>
+                <p><strong>Kontak:</strong> ${school.profil.kontak}</p>`;
+            
+            document.getElementById('gtk').innerHTML = `<h3>Guru & Tenaga Kependidikan (GTK)</h3>
+                <p><strong>Total:</strong> ${school.gtk.total} | <strong>PNS:</strong> ${school.gtk.pns} | <strong>PPPK:</strong> ${school.gtk.pppk} | <strong>Honorer:</strong> ${school.gtk.honorer}</p>
+                <p><em>(Grafik dan tabel detail akan ditampilkan di sini)</em></p>`;
+
+            document.getElementById('kesiswaan').innerHTML = `<h3>Kesiswaan</h3>
+                <p><strong>Total Siswa:</strong> ${school.kesiswaan.total}</p>
+                <p><strong>Jumlah Rombel:</strong> ${school.kesiswaan.rombel}</p>
+                <p><strong>Rata-rata Siswa/Rombel:</strong> ${school.kesiswaan.rataRata}</p>
+                <p><em>(Grafik tren jumlah siswa akan ditampilkan di sini)</em></p>`;
+
+            document.getElementById('sarpras').innerHTML = `<h3>Sarana & Prasarana</h3>
+                <p><em>(Tabel detail kondisi ruang akan ditampilkan di sini)</em></p>`;
+
+            document.getElementById('bantuan').innerHTML = `<h3>Bantuan & Program</h3>
+                <p><strong>Histori Bantuan:</strong> ${school.bantuan.histori}</p>
+                <p><strong>Program Diikuti:</strong> ${school.bantuan.program}</p>`;
+            
+            // Tampilkan tab pertama secara default
+            document.getElementById('profil').style.display = "block";
+        };
+    </script>
+</body>
+</html>
