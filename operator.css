@@ -30,12 +30,29 @@ header h1 {
 }
 
 main {
+    width: 90%;
     max-width: 800px;
-    margin: 30px auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    header h1 {
+        margin-bottom: 10px;
+    }
+    main {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
 }
 
 h2 {

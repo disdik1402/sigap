@@ -26,9 +26,33 @@ header h1 {
 }
 
 main {
+    width: 95%;
     max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    header h1 {
+        margin-bottom: 10px;
+    }
+    main {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+    .actions {
+        text-align: left;
+    }
+    .actions button {
+        width: 100%;
+        margin-top: 10px;
+    }
 }
 
 h2 {

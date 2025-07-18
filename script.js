@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // --- RESPONSIVE BEHAVIOR ---
+    const filterPanel = document.getElementById('filter-panel');
+    const toggleButton = document.getElementById('toggle-filter-btn');
+
+    function setInitialPanelState() {
+        if (window.innerWidth <= 768) {
+            filterPanel.classList.add('hidden-mobile');
+        } else {
+            filterPanel.classList.remove('hidden-mobile');
+        }
+    }
+
+    toggleButton.addEventListener('click', () => {
+        filterPanel.classList.toggle('hidden-mobile');
+    });
+
+    window.addEventListener('resize', setInitialPanelState);
+    // --- END RESPONSIVE BEHAVIOR ---
+
     const mapCenter = [-7.75, 112.9];
     const map = L.map('map').setView(mapCenter, 10);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -74,4 +93,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     displayKPIs();
     applyAllFilters();
+    setInitialPanelState(); // Set initial state on load
 });

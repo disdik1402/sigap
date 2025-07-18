@@ -30,12 +30,14 @@ header h1 {
 }
 
 main {
+    width: 95%;
     max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 15px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-sizing: border-box;
 }
 
 .profile-header {
@@ -55,13 +57,15 @@ main {
 }
 
 .tab-buttons {
-    overflow: hidden;
     border-bottom: 1px solid #ccc;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .tab-button {
     background-color: inherit;
-    float: left;
+    display: inline-block;
     border: none;
     outline: none;
     cursor: pointer;
